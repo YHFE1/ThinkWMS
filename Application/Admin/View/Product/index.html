@@ -1,0 +1,76 @@
+<include file="Public/header" title="产品管理" />
+<div id="page-wrapper">
+
+	<div class="row">
+		<div class="col-md-6" style="width:25%">
+			<a href="{:U('Product/add')}" class="btn btn-success">新增</a>
+		</div>
+		<div class="col-md-6" style="width:25%">						
+			<form id="upload" action="{:U('Product/importExcel')}" method="post" enctype="multipart/form-data">				
+					<label class="btn btn-success" style="float:left;" for="file">上传文件:</label>
+					<input style="width:150px;float:left;" type="file" name="file" id="file">
+					<input style="width:100px;" type="submit" name="submit" value="上传" />						
+			</form>
+		</div>	
+		<div class="col-md-6" style="width:25%">			
+			<a href="{:U('Product/expUser')}" class="btn btn-success">批量导出</a>
+		</div>		
+		<div class="col-md-6" style="width:25%">
+			<form action="{:U('Product/index')}" method="post">
+				<div class="form-group input-group">
+					<input type="text" class="form-control" name="key" placeholder="输入产品名称、分类或者添加人关键词搜索">
+					<span class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                    </span>
+				</div>
+			</form>
+		</div>
+	</div>
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>				
+				<th>产品名称</th>
+				<th>产品分类</th>
+				<th>市场单价</th>
+				<th>计量单位</th>
+				<th>型号规格</th>
+				<th>添加人</th>
+				<th>添加时间</th>
+				<th>详情</th>				
+				<th>状态</th>				
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="model" item="v">
+				<tr>
+					<td>{$v.name}</td>					
+					<td>{$v.category_name}</td>
+					<td>{$v.price}</td>					
+					<td>{$v.type}</td>					
+					<td>{$v.title}</td>					
+					<td>{$v.username}</td>					
+					<td>{$v.addtime|date="Y/m/d H:i:s",###}</td>
+					
+					<td>{$v.remarks}</td>										
+					<td>
+					<?php if ($v.status==0) { ?>					
+					   <img src="__STATIC__/images/ok.gif">
+					<?php 									
+					} else {
+					?>
+					   <img src="__STATIC__/images/locked.gif">
+					<?php
+					}
+					?>
+					</td>
+					<td><a href="{:U('Product/update?id=')}{$v.id}">编辑</a></td>					
+				</tr>
+			</foreach>
+		</tbody>
+	</table>
+	<div class="clearfix"></div>
+	{$page}
+
+</div>
+<include file="Public/footer" />

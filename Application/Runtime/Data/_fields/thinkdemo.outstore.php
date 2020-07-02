@@ -1,0 +1,1 @@
+a:8:{i:0;s:2:"Id";i:1;s:8:"applicat";i:2;s:3:"pid";i:3;s:14:"outstore_count";i:4;s:13:"outstore_time";i:5;s:16:"outstore_remarks";s:3:"_pk";s:2:"Id";s:5:"_type";a:6:{s:2:"Id";s:12:"mediumint(9)";s:8:"applicat";s:12:"varchar(255)";s:3:"pid";s:11:"smallint(6)";s:14:"outstore_count";s:7:"int(11)";s:13:"outstore_time";s:7:"int(11)";s:16:"outstore_remarks";s:12:"varchar(255)";}}

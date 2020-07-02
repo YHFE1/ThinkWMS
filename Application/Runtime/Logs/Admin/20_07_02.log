@@ -1,0 +1,7 @@
+[ 2020-07-02T00:49:13+08:00 ] ::1 /Test/wms/index.php?m=Admin&c=Login&a=login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.018354s ]
+SQL: SELECT * FROM `member` WHERE ( username = 'Apple' and password= 'e10adc3949ba59abbe56e057f20f883e' ) LIMIT 1   [ RunTime:0.2946s ]
+SQL: UPDATE `member` SET `update_at`='1593622153',`login_ip`='0.0.0.0' WHERE ( username = 'Apple' and password= 'e10adc3949ba59abbe56e057f20f883e' ) [ RunTime:0.0234s ]
+

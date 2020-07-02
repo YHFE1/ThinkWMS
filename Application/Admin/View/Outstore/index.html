@@ -1,0 +1,47 @@
+<include file="Public/header" title="出库记录列表" />
+<div id="page-wrapper">
+
+	<div class="row">
+		<div class="col-md-6">
+			<a href="{:U('Outstore/add')}" class="btn btn-success">申请出库</a>
+		</div>
+		<div class="col-md-6">
+			<form action="{:U('Outstore/index')}" method="post">
+				<div class="form-group input-group">
+					<input type="text" class="form-control" name="key" placeholder="输入产品名称或者申请人关键词搜索">
+					<span class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                    </span>
+				</div>
+			</form>
+		</div>
+	</div>
+	<table class="table table-hover table-striped">
+		<thead>
+			<tr>				
+				<th>产品名称</th>
+				<th>申请人</th>
+				<th>出库数量</th>				
+				<th>出库时间</th>						
+				<th>详情</th>						
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<foreach name="model" item="v">
+				<tr>					
+					<td>{$v.product_name}</td>					
+					<td>{$v.applicat}</td>					
+					<td>{$v.outstore_count}</td>										
+					<td>{$v.outstore_time|date="Y/m/d H:i:s",###}</td>																					
+					<td>{$v.outstore_remarks}</td>																					
+					<td><a href="{:U('Outstore/update?id=')}{$v.id}">编辑</a> | <a href="{:U('Outstore/delete?id=')}{$v.id}" style="color:red;" onclick="javascript:return del('您真的确定要删除吗？\n\n删除后将不能恢复!');">删除</a></td>					
+				</tr>
+			</foreach>
+		</tbody>
+	</table>
+	<div class="clearfix"></div>
+	{$page}
+
+</div>
+<include file="Public/footer" />
